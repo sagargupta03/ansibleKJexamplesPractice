@@ -1,0 +1,9 @@
+
+--- # varinplaybookandmagicvar.yml
+- name: Myplaybook 
+  hosts: grouplocal
+  gather_facts: Yes 
+  vars:
+    inv_list: /home/ansible/ketanlabansible/variables/invlisthostvar2.txt
+  tasks:
+  - debug: var=hostvars[inventory_hostname]      

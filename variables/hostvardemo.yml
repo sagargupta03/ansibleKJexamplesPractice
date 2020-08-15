@@ -1,0 +1,15 @@
+--- # varinplaybookandmagicvar.yml
+- name: Myplaybook 
+  hosts: grouplocal
+  vars:
+    inv_list: /home/ansible/ketanlabansible/variables/invlisthostvar2.txt
+  tasks:
+  - name: Create a new file
+    file: 
+      path: "{{ inv_list }}"
+      state: touch
+  - name: copy hosts
+    lineinfile: 
+      path: "{{ inv_list }}"
+      line: "{{ hostvars[54.81.156.115]['inventory_dir']  }}"
+       

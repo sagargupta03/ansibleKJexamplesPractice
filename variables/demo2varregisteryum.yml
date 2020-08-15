@@ -1,0 +1,11 @@
+---
+- hosts: grouplocal
+  become: yes
+  tasks:
+    - name: Task 1 install apache(httpd)
+      yum:
+        name: httpd
+        state: latest
+        register: optyum
+    - debug: msg="Registered output is {{optyum}}"
+

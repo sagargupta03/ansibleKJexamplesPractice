@@ -1,0 +1,19 @@
+- name: registered variable usage as a loop list
+  hosts: grouplocal
+  tasks:
+
+    - name: retrieve the list of home directories
+      command: ls /home
+      register: home_dirs
+    - debug: msg="Registered output is {{home_dirs}}"
+
+    - name: Task 3 create registercommandoutput.txt
+      file:
+        path: /home/ansible/ketanlabansible/variables/registercommandoutput.txt
+        state: touch
+
+    - name: Put the output in a file , create if not there
+      lineinfile:
+        path: /home/ansible/ketanlabansible/variables/registercommandoutput.txt
+        line: "{{home_dirs}}"
+

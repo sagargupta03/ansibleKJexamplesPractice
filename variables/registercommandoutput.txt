@@ -1,0 +1,1 @@
+{'stderr_lines': [], 'changed': True, 'end': '2020-08-15 22:18:45.448862', 'stdout': 'ansible\ncentos', 'cmd': ['ls', '/home'], 'failed': False, 'delta': '0:00:00.004527', 'stderr': '', 'rc': 0, 'stdout_lines': ['ansible', 'centos'], 'start': '2020-08-15 22:18:45.444335'}

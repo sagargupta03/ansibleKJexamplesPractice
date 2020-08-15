@@ -1,0 +1,14 @@
+---
+
+- hosts: grouplocal
+  tasks: 
+    - name: create a file
+      file: 
+        path: /home/ansible/ketanlabansible/variables/registeroutput.txt
+        state: touch
+      register: optouch
+    - debug: msg="Registered output is {{optouch}}"
+    - name: Put the dest and gid in a file
+      lineinfile: 
+        path: /home/ansible/ketanlabansible/variables/registeroutput.txt
+        line: "{{optouch.dest}}:{{optouch.gid}}"

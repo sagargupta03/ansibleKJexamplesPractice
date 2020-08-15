@@ -14,5 +14,6 @@ localhost
 34.204.93.72 
 
 
-[all:vars]
-ansible_connection=local
+#[all:vars]
+#ansible_connection=local
+# it didnt allow me to do ssh and work on remote

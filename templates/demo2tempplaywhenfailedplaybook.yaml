@@ -1,0 +1,14 @@
+---
+- hosts: groupcommon
+  tasks:
+    - name: deply the config file
+      template: 
+        src: /home/ansible/ketanlabansible/templates/template.j2
+        dest: /home/ansible/ketanlabansible/templates/finalconfig.conf
+      when: inventory_hostname == 3.88.141.86
+  tasks:
+    - name: deply the config file - second server
+      template:
+        src: /home/ansible/ketanlabansible/templates/template.j2
+        dest: /home/ansible/finalconfig.conf
+      when: inventory_hostname == 54.166.217.171

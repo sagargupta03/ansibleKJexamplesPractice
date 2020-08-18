@@ -1,0 +1,21 @@
+--- # Notification and handling events
+- hosts: groupcommon
+  remote_user: ansible
+  become: yes
+  become_method: sudo
+  gather_facts: no
+  connection: ssh
+  tasks:
+  - name: install apache web server
+    yum:
+      name: httpd
+      state: latest
+    notify: 
+    - "start webserver"
+  handlers:
+  - name: enable and start apache service
+    service: 
+      name: httpd
+      enabled: yes
+      state: restarted
+    listen: "start webserver"

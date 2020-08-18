@@ -1,0 +1,9 @@
+---
+- hosts: groupcommon
+  become: yes
+  tasks:
+    - name: edit index.html file
+      lineinfile: 
+        path: /var/www/html/index.html
+        line: "This is for when example in a playbook"
+      when: inventory_hostname == "3.88.141.86"

@@ -1,0 +1,12 @@
+---
+- hosts: groupcommon
+  tasks:
+    - name: get file
+      block: 
+        - get_url:
+            url: "http://3.88.141.86/index.html"
+            dest: "/tmp/index_file"
+      rescue: 
+        - debug: msg="The file does not exist!"
+      always:
+        - debug: msg="inside always"

@@ -1,0 +1,12 @@
+---
+- hosts: grouplocal
+  tasks: 
+    - name: get files from all hosts
+      get_url: 
+        url: "http://{{item}}/index.html"
+        dest: "/tmp/{{item}}"
+      ignore_errors: yes
+      with_items:
+        - 3.88.141.86
+        - 54.166.217.171
+        - 54.81.156.115

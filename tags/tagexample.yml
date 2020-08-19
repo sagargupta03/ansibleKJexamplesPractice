@@ -1,0 +1,22 @@
+---
+- name: Playbook1 for webservers 
+  hosts: groupcommon
+  become: yes
+  tasks:
+  - name: deploy application binary to webserver
+    copy: 
+      remote_src: no
+      src: /home/ansible/ketanlabansible/tags/index1.html
+      dest: /var/www/html/index3.html
+    tags: 
+      - appdep
+- name: Playbook1 for dbservers
+  hosts: grouplocal
+  become: yes
+  tasks:
+  - name: deploy Datbase
+    copy: 
+      src: /home/ansible/ketanlabansible/tags/dbscript.sql
+      dest: /opt/db/scripts/dbscript3.sql
+    tags: 
+      - dbdep
